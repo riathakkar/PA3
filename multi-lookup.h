@@ -8,21 +8,21 @@ struct Global
 	pthread_mutex_t queue_lock;
 	pthread_mutex_t service_lock;
 	pthread_mutex_t result_lock;
-	queue* sharedarray;
+	queue* shared_array;
 	int file_count;
 	FILE** fileArray;
-	int helpFiles;
-	int* noLiveRequester;
+	int* running;
 };
-struct reqThread
+struct req_thread_info
 {
 	int count;
 	FILE* filename;
 	struct Global* global;
 	FILE* serviced;
 	int id;
-}; 
-struct resThread
+	int fileOn;
+};
+struct res_thread_info
 {
 	struct Global* global;
 	FILE* results;
