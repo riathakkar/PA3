@@ -8,6 +8,8 @@ struct Global
 	pthread_mutex_t queue_lock;
 	pthread_mutex_t service_lock;
 	pthread_mutex_t result_lock;
+	pthread_cond_t cond_request;
+	pthread_cond_t cond_resolve;
 	queue* shared_array;
 	int file_count;
 	FILE** fileArray;
